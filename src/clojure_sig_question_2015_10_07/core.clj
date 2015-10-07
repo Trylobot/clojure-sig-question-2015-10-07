@@ -15,7 +15,10 @@
       (conj current-stack item)
       [item]))) )
 
-; current binding (under test)
-;(def add-item add-item-1)
-(def add-item add-item-upd)
+; second version with more idiomatic use of conj
+(defn add-item-upd-2 [collection item stack-key]
+  (update-in collection [stack-key] conj item) )
+
+; current binding under test
+(def add-item  add-item-upd-2)
 
